@@ -7,7 +7,10 @@ RUN yum -y install rpm-build redhat-rpm-config yum-utils rpmdevtools git sudo
 RUN yum -y install bash bzip2 coreutils cpio diffutils findutils gawk gcc gcc-c++ grep gzip info make patch redhat-rpm-config rpm-build sed shadow-utils tar unzip util-linux which xz
 
 RUN useradd -u 1000 -c 'RPM build user' -m -U -d /home/rpmbuild rpmbuild
-RUN echo "rpmbuild ALL=(ALL)       NOPASSWD: ALL" > /etc/sudoers.d/rpmbuild
+#RUN echo "rpmbuild ALL=(ALL)       NOPASSWD: ALL" > /etc/sudoers.d/rpmbuild
+RUN echo "Cmnd_Alias RPMBUILDING = /usr/bin/yum-builddep" > /etc/sudoers.d/rpmbuild
+RUN echo "rpmbuild   ALL= NOPASSWD: RPMBUILDING" >> /etc/sudoers.d/rpmbuild
+RUN echo "Defaults!RPMBUILDING !requiretty" >> /etc/sudoers.d/rpmbuild
 
 ADD rpmmacros /home/rpmbuild/.rpmmacros
 RUN chown rpmbuild:rpmbuild /home/rpmbuild/.rpmmacros
