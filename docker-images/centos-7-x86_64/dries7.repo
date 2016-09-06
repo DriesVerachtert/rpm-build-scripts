@@ -1,0 +1,6 @@
+[dries7]
+name=driesrpms.eu
+baseurl=https://driesrpms.eu/redhat/el7/en/x86_64/dries.all/
+enabled=1
+gpgcheck=0
+priority=50
