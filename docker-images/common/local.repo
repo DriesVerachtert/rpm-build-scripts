@@ -1,0 +1,6 @@
+[local]
+name=Local rpms to test
+baseurl=file:///home/rpmbuild/repo
+enabled=1
+gpgcheck=0
+priority=1
