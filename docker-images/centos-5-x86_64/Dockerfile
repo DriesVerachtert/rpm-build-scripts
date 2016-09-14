@@ -19,7 +19,7 @@ RUN chown rpmbuild:rpmbuild /home/rpmbuild/.curlrc
 ADD local.repo /etc/yum.repos.d/local.repo
 RUN chown root:root /etc/yum.repos.d/local.repo
 ADD dries5.repo /etc/yum.repos.d/dries5.repo
-RUN chown root:root /etc/yum.repos.d/dries6.repo
+RUN chown root:root /etc/yum.repos.d/dries5.repo
 RUN mkdir -p /home/rpmbuild/repo && cd /home/rpmbuild/repo && createrepo . && chown -R rpmbuild:rpmbuild .
 
 #VOLUME /home/rpmbuild/rpm
