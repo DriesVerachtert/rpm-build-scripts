@@ -27,7 +27,7 @@ RUN mkdir -p /home/rpmbuild/repo && cd /home/rpmbuild/repo && createrepo . && ch
 
 #VOLUME /home/rpmbuild/rpm
 
-RUN yum install -y http://mirror.hmc.edu/rpmforge/redhat/el6/en/x86_64/buildtools/RPMS/rpm-macros-rpmforge-0-6.el6.rfb.noarch.rpm
+RUN yum install -y http://mirror.hmc.edu/rpmforge/redhat/el5/en/x86_64/buildtools/RPMS/rpm-macros-rpmforge-0-6.el5.rfb.noarch.rpm
 
 USER 1000
 WORKDIR /home/rpmbuild
