@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# normally executed within a docker build image
+# check if a single rpm has a conflict with CentOS base
+
 # argument 1: a single rpm to test
 # argument 2: a path to a 'centos-base-provides' file
 
@@ -20,7 +21,7 @@ if [[ -n "$1" ]] ; then
 				echo "No conflict found for $i"
 			else
 				if [[ $MYGREPRETVAL -eq 0 ]] ; then
-					echo "Conflict found: $i is already provided by a CentOS base rpm: " `repoquery  --disablerepo="*" --enablerepo="base" --whatprovides "$i"`
+					echo "Conflict found: $i is already provided by a CentOS base rpm" #  `repoquery  --disablerepo="*" --enablerepo="base" --whatprovides "$i"`
 					CONFLICTSFOUND=1
 				else
 					echo "Error occurred while checking provides"
