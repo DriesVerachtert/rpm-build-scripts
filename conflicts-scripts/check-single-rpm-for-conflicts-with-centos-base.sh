@@ -32,6 +32,7 @@ if [[ -n "$1" ]] ; then
 	else
 		echo "Argument 2 neede: a list of base provides of a certain CentOS release, for example /srv/rpmbuild/centos6-x86_64-base-provides"
 		exit 1
+	fi
 else
 	echo "Argument 1 needed: an rpm, for example /path/to/aget-1.2.3-1.x86_64.rpm"
 	exit 1
