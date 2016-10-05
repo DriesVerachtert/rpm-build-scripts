@@ -5,7 +5,9 @@ RUN yum -y update
 RUN yum -y install rpm-build redhat-rpm-config yum-utils rpmdevtools git sudo createrepo yum-plugin-priorities
 #RUN yum -y groupinstall buildsys-build
 RUN yum -y install bash bzip2 coreutils cpio diffutils findutils gawk gcc gcc-c++ grep gzip info make patch redhat-rpm-config rpm-build sed shadow-utils tar unzip util-linux which xz
-
+# python-hashlib is needed for yum to handle newer createrepo generated repositories
+# update: not needed: switched to createrepo with checksum sha
+# RUN yum -y install python-hashlib
 # CentOS 5 useradd does not support -U
 RUN groupadd -g 1000 rpmbuild
 RUN useradd -u 1000 -c 'RPM build user' -m -g 1000 -d /home/rpmbuild rpmbuild

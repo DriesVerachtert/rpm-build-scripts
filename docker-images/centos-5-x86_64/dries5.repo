@@ -1,4 +1,4 @@
-[dries6]
+[dries5]
 name=driesrpms.eu
 baseurl=https://driesrpms.eu/redhat/el5/en/x86_64/dries.all/
 enabled=1
