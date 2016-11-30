@@ -1,0 +1,6 @@
+[dries-scl-untested-7-x86_64]
+name=driesrpms.eu SCL untested 7 x86_64
+baseurl=https://driesrpms.eu/redhat/el7/en/x86_64/dries.scl.untested/
+enabled=1
+gpgcheck=0
+priority=50
