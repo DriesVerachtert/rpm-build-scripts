@@ -1,0 +1,6 @@
+[dries-scl-tested-6-x86_64]
+name=driesrpms.eu SCL tested 6 x86_64
+baseurl=https://driesrpms.eu/redhat/el6/en/x86_64/dries.scl.tested/
+enabled=1
+gpgcheck=0
+priority=50
