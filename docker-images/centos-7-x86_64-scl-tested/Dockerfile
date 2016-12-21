@@ -6,7 +6,8 @@ RUN yum -y install bash bzip2 coreutils cpio diffutils findutils gawk gcc gcc-c+
 RUN yum -y install scl-utils-build
 RUN yum -y update
 
-RUN useradd -u 1000 -c 'RPM build user' -m -U -d /home/rpmbuild rpmbuild
+RUN /usr/sbin/groupadd -g 994 jenkins
+RUN useradd -u 1500 -g jenkins -c 'RPM build user' -m -d /home/rpmbuild rpmbuild
 #RUN echo "rpmbuild ALL=(ALL)       NOPASSWD: ALL" > /etc/sudoers.d/rpmbuild
 RUN echo "Cmnd_Alias RPMBUILDING = /usr/bin/yum-builddep, /home/rpmbuild/rpmforge/repoforge-t_functional/runtests.sh" > /etc/sudoers.d/rpmbuild
 RUN echo "rpmbuild   ALL= NOPASSWD: RPMBUILDING" >> /etc/sudoers.d/rpmbuild
@@ -27,5 +28,5 @@ RUN mkdir -p /home/rpmbuild/repo && cd /home/rpmbuild/repo && createrepo . && ch
 RUN yum install -y http://mirror.hmc.edu/rpmforge/redhat/el7/en/x86_64/buildtools/RPMS/rpm-macros-rpmforge-0-6.el7.rfb.noarch.rpm
 RUN yum -y install epel-release
 
-USER 1000
+USER 1500
 WORKDIR /home/rpmbuild
