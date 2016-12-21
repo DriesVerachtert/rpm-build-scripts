@@ -14,14 +14,14 @@ RUN echo "rpmbuild   ALL= NOPASSWD: RPMBUILDING" >> /etc/sudoers.d/rpmbuild
 RUN echo "Defaults!RPMBUILDING !requiretty" >> /etc/sudoers.d/rpmbuild
 
 ADD rpmmacros /home/rpmbuild/.rpmmacros
-RUN chown rpmbuild:rpmbuild /home/rpmbuild/.rpmmacros
+RUN chown rpmbuild:jenkins /home/rpmbuild/.rpmmacros
 ADD curlrc /home/rpmbuild/.curlrc
-RUN chown rpmbuild:rpmbuild /home/rpmbuild/.curlrc
+RUN chown rpmbuild:jenkins /home/rpmbuild/.curlrc
 ADD local.repo /etc/yum.repos.d/local.repo
 RUN chown root:root /etc/yum.repos.d/local.repo
 ADD dries-scl-tested-6-x86_64.repo /etc/yum.repos.d/dries-scl-tested-6-x86_64.repo
 RUN chown root:root /etc/yum.repos.d/dries-scl-tested-6-x86_64.repo
-RUN mkdir -p /home/rpmbuild/repo && cd /home/rpmbuild/repo && createrepo . && chown -R rpmbuild:rpmbuild .
+RUN mkdir -p /home/rpmbuild/repo && cd /home/rpmbuild/repo && createrepo . && chown -R rpmbuild:jenkins .
 
 #VOLUME /home/rpmbuild/rpm
 
